@@ -1,0 +1,1031 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Reactive Musketeers</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/blood.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h3>Reactive Musketeers</h3>
+					<h5><a href="https://github.com/reactive-musketeers/foundation-slideshow">The First Slideshow</a></h5>
+					<p class="fragment"><strong>ES.Next</strong></p>
+				</section>
+				<section>
+					<section>
+						<h3>About our guild</h3>
+						<p class="fragment">
+							Five* web technologies enthusiasts
+						</p>
+						<p class="fragment"><small>*for now ;)</small></p>
+					</section>
+					<section>
+						<h3>Why we create a guild?</h3>
+						<h4 class="fragment">Because we want to rule the world!</h4>
+						<p class="fragment">
+							and learn something
+						</p>
+					</section>
+				</section>
+				<section data-background="images/letsrock.gif">
+					<h2>Let's rock!</h2>
+				</section>
+				<section>
+					<section>
+						<h3>WTF is ECMAScript?</h3>
+						<p>
+							ECMAScript is the name of the standardized specification of the scripting language JavaScript
+						</p>
+					</section>
+					<section>
+						<h3>ES Versions</h3>
+						<ul>
+							<li>Before 2000 - ES1, ES2, <strong>ES3</strong></li>
+							<li>ES4 - abandoned</li>
+							<li>ES5/<strong>5.1</strong> - 2009/2011</li>
+							<li><strong>ES6</strong> - ES2015</li>
+							<li><strong>ES7</strong> - ES2016</li>
+							<li><strong>ES8</strong> - ES2017 - hot! (String padding ;))</li>
+							<li><strong>ES.Next / ES Harmony</strong></li>
+						</ul>
+					</section>
+				</section>
+				<section data-background="images/es.gif">
+				</section>
+				<section>
+					<h3>ES5.1 is fully adopted. Why should We use ES.Next?</h3>
+					<ul>
+						<li class="fragment">It's a future</li>
+						<li class="fragment">Less problems with VanillaJS</li>
+						<li class="fragment">74% developers use it (<a href="http://stateofjs.com/2016/flavors/">http://stateofjs.com/2016/flavors/</a>)</li>
+						<li class="fragment">Really good support (<a href="http://kangax.github.io/compat-table/es6/">http://kangax.github.io/compat-table/es6/</a>)</li>
+					</ul>
+				</section>
+				<section>
+					<section>
+						<h3>Musketeers ES Toolbelt</h3>
+						<ul>
+							<li>LET and CONST (ES6)</li>
+							<li>Classes (ES6)</li>
+							<li>Arrow Functions (ES6)</li>
+							<li>Modules (ES6)</li>
+							<li>Template Literals (ES6)</li>
+							<li>Promises (ES6)</li>
+                            <li>Enhanced Object Literal (ES6)</li>
+						</ul>
+					</section>
+					<section>
+						<h3>And these things</h3>
+						<ul>
+							<li>Spread Operator (ES6/ES7)</li>
+							<li>Rest Parameters (ES6)</li>
+							<li>Default Parameters (ES6)</li>
+							<li>for...of (ES6)</li>
+							<li>Destructuring Assignment (ES6)</li>
+							<li>Symbols, Maps, Sets (ES6)</li>
+						</ul>
+					</section>
+					<section>
+						<h3>And these...</h3>
+						<ul>
+							<li>Exponentiation operator (ES7)</li>
+							<li>New Array Methods (ES6/ES7)</li>
+							<li>Async Functions (ES8)</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>LET and CONST</h3>
+						<div class="left-box">
+							<p>var - function scope</p>
+						</div>
+						<div class="right-box">
+							<p>let/const - block scope</p>
+						</div>
+					</section>
+					<section>
+						<h4>LET and CONST</h4>
+                        <div>
+                            <pre><code class="hljs" data-trim contenteditable>
+const key = 'abc123';
+let points = 50;
+let winner = false;
+
+if (points > 40) {
+   let winner = true; // different variable
+}
+                            </code></pre>
+                        </div>
+					</section>
+                    <section>
+                        <h4>LET and CONST</h4>
+                        <p>Temporal Dead Zone</p>
+                        <div>
+                            <pre><code class="hljs" data-trim contenteditable>
+function do_something() {
+    console.log(bar); // undefined
+    console.log(foo); // ReferenceError
+    var bar = 1;
+    let foo = 2;
+}
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <h4>LET and CONST</h4>
+                        <p>You can't change const!</p>
+                        <div>
+                            <pre><code class="hljs" data-trim contenteditable>
+const key = 'abc123';
+
+key = 12; // TypeError
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <h4>LET and CONST</h4>
+                        <p>But You can modify const objects!</p>
+                        <div>
+                            <pre><code class="hljs" data-trim contenteditable>
+const person = {
+    name: 'John',
+    age: 22
+}
+
+person.age = 29;  // it's ok!
+                            </code></pre>
+                        </div>
+                    </section>
+				</section>
+                <section>
+                    <section>
+                        <h3>Classes</h3>
+                        <p class="fragment">Syntactical sugar over JavaScript's existing prototype-based inheritance</p>
+                        <p class="fragment">Classes provide a much simpler and clearer syntax to create objects and deal with inheritance</p>
+                        <p class="fragment">The bodies of class declarations and class expressions are executed in strict mode</p>
+                    </section>
+                    <section>
+                        <h4>Classes</h4>
+                        <p>Before</p>
+                        <pre><code class="hljs" data-trim contenteditable>
+function Vehicle (name, type) {
+    this.name = name;
+    this.type = type;
+};
+ 
+Vehicle.prototype.getName = function getName () {
+    return this.name;
+};
+ 
+Vehicle.prototype.getType = function getType () {
+    return this.type;
+};
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h4>Classes</h4>
+                        <p>Now</p>
+                        <pre><code class="hljs" data-trim contenteditable>
+class Vehicle {
+    constructor(name, type) {
+        this.name = name;
+        this.type = type;
+    }
+
+    getName() {
+        return this.name;
+    }
+
+    getType() {
+        return this.type;
+    }
+}
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h4>Classes</h4>
+                        <p>Simplier inheritance</p>
+                        <pre><code class="hljs" data-trim contenteditable>
+class Car extends Vehicle {
+    constructor(name) {
+        super(name, 'car');
+    }
+
+    getName() {
+        return 'It is a car: ' + super.getName();
+    }
+}
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h4>Classes</h4>
+                        <p>get / set / static</p>
+                        <pre><code class="hljs" data-trim contenteditable>
+class Car {
+    constructor(name) {
+        this._name = name;
+    } 
+
+    set name(name) {
+        this._name = name;
+    }
+
+    get name() {
+        return this._name;
+    }
+
+    static create(name, type) {
+        return new Car(name, type);
+    }
+}
+Car.create("Ford", "car"); // return new Car
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h4>Classes</h4>
+                        <p>Class expression</p>
+                        <pre><code class="hljs" data-trim contenteditable>
+let Car = class {
+    constructor(name) {
+        this._name = name;
+    }
+};
+                        </code></pre>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h3>Arrow functions</h3>
+                        <p>New shorter syntax for function expression</p>
+                        <div class="left-box">
+                            <p>Before</p>
+                            <pre><code class="hljs" data-trim contenteditable>
+var test = function (value) {
+    return value * 2;
+};
+                            </code></pre>
+                        </div>
+                        <div class="right-box">
+                            <p>Now</p>
+                            <pre><code class="hljs" data-trim contenteditable>
+let test = (value) => {
+    return value * 2;
+};
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <h4>Arrow functions</h4>
+                        <div>
+                            <p>IIFE with Arrow Function</p>
+                            <pre><code class="hljs" data-trim contenteditable>
+(() => {
+    // some code
+}());
+                            </code></pre>
+                        </div>
+                        <div>
+                            <p>Even shorter syntax for functions with only return statement</p>
+                            <pre><code class="hljs" data-trim contenteditable>
+let test = (value) => value * 2;
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <h4>Arrow functions - Automatic binding</h4>
+                        <div>
+                            <p>Before</p>
+                            <pre><code class="hljs" data-trim contenteditable>
+function Person() {
+    var that = this;
+    that.age = 0;
+
+    setInterval(function() {
+        that.age++;
+    }, 1000);
+}
+                            </code></pre>
+                        </div>
+                        <div>
+                            <p>Now</p>
+                            <pre><code class="hljs" data-trim contenteditable>
+function Person(){
+    this.age = 0;
+
+    setInterval(() => {
+        this.age++;
+    }, 1000);
+}
+                            </code></pre>
+                        </div>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h3>Modules</h3>
+                        <p>Now we can write modular JS code natively!</p>
+                        <p class="fragment">ES6 Modules are in strict mode by default (bye bye "use strict")</p>
+                    </section>
+                    <section>
+                        <h4>Modules</h4>
+                        <div>
+                            <pre><code class="hljs" data-trim contenteditable>
+export const sqrt = Math.sqrt;
+export function square(x) {
+    return x * x;
+}
+export  function diag(x, y) {
+    return sqrt(square(x) + square(y));
+}
+
+export default function test() { return "test"; }
+
+// ------ 
+import { square, diag } from 'lib';
+import test from 'lib';
+console.log(square(11));   // 121
+console.log(diag(4, 3));   // 5
+                            </code></pre>
+                        </div>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h3>Template Literals</h3>
+                        <div class="left-box">
+                            <p>Before</p>
+                            <pre><code class="hljs" data-trim contenteditable>
+let ob = "world";
+console.log("Hello " + world);
+                            </code></pre>
+                        </div>
+                        <div class="right-box">
+                            <p>Now</p>
+                            <pre><code class="hljs" data-trim contenteditable>
+let ob = "world";
+console.log(`Hello ${world}`);
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <h3>Template Literals</h3>
+                        <div>
+                            <p>Loop example</p>
+                            <pre><code class="hljs" data-trim contenteditable>
+${movies.map(movie => `<li class="filmotique-movie col-xs-12 col-md-4">
+    <div class="box">
+        <span class="movie-title">${movie.title}</span>
+        <span class="movie-date">${movie.release_date}</span>
+    </div>
+</li>`).join("")};
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <h3>Multi-line strings</h3>
+                        <div>
+                            <p>Before</p>
+                            <pre><code class="hljs" data-trim contenteditable>
+let text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n\t" 
+           + "Morbi ornare sapien in consequat pellentesque.";
+                            </code></pre>
+                        </div>
+                        <div>
+                            <p>Now</p>
+                            <pre><code class="hljs" data-trim contenteditable>
+let text = `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+               Morbi ornare sapien in consequat pellentesque.`;
+                            </code></pre>
+                        </div>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h3>Promises</h3>
+                        <div>
+                            <pre><code class="hljs" data-trim contenteditable>
+
+let wait = new Promise((resolve, reject) => {
+    setTimeout(resolve, 1000);
+}).then(() => {
+    console.log('WoW');
+});
+
+let wait2 = new Promise((resolve, reject) => {
+    setTimeout(resolve, 1000);
+});
+
+wait2.then((val) => {
+    console.log(val);
+}).catch((err) => {
+    console.log(err.message);
+});
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <h4>Promises</h4>
+                        <p>More than one</p>
+                        <div>
+                            <pre><code class="hljs" data-trim contenteditable>
+let urls = {  
+    'http://www.api.com/items/1234',
+    'http://www.api.com/items/4567'
+},
+itemPromises = urls.map(fetchJSON);
+
+Promise.all(itemPromises)  
+    .then(function(results) {
+        results.forEach(function(item) {
+            // process item
+        });
+    })
+    .catch(function(err) {
+        console.log(`Failed: ${err}`);
+    });
+                            </code></pre>
+                        </div>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h4>Enhanced Object Literal</h4>
+                        <p>Property Value Shorthand</p>
+                        <div class="left-box">
+                            <p>Before</p>
+                            <pre><code class="hljs" data-trim contenteditable>
+function f(x, y) {
+    return { 
+        x: x, 
+        y: y 
+    };
+}
+                            </code></pre>
+                        </div>
+                        <div class="right-box">
+                            <p>Now</p>
+                            <pre><code class="hljs" data-trim contenteditable>
+function f(x, y) {
+    return { 
+        x, 
+        y
+    };
+}
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <h4>Enhanced Object Literal</h4>
+                        <p>Method Definition Shorthand</p>
+                        <div class="left-box">
+                            <p>Before</p>
+                            <pre><code class="hljs" data-trim contenteditable>
+let ob = {
+    method: function() {
+        return "Hello!";
+    }
+};
+                            </code></pre>
+                        </div>
+                        <div class="right-box">
+                            <p>Now</p>
+                            <pre><code class="hljs" data-trim contenteditable>
+let ob = {
+    method() {
+        return "Hello!";
+    }
+};
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <h4>Enhanced Object Literal</h4>
+                        <p>Computed Object Keys</p>
+                        <div>
+                            <p>Before</p>
+                            <pre><code class="hljs" data-trim contenteditable>
+let ob = {};
+let dynamicKey = "dynamic" + Date.now();
+ob[dynamicKey] = "test";
+                            </code></pre>
+                        </div>
+                        <div>
+                            <p>Now</p>
+                            <pre><code class="hljs" data-trim contenteditable>
+let ob = {
+    ["dynamic" + Date.now()]: "test"
+};
+                            </code></pre>
+                        </div>
+                    </section>
+                </section>
+                 <section>
+                    <section>
+                        <h3>Spread operator</h3>
+                        <div>
+                            <pre><code class="hljs" data-trim contenteditable>
+function myFunction(x, y, z) { }
+let args = [0, 1, 2];
+myFunction(...args);
+
+function myFunction(v, w, x, y, z) { }
+let args = [0, 1];
+myFunction(-1, ...args, 2, ...[3]);
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <h4>Spread operator</h4>
+                        <div>
+                            <pre><code class="hljs" data-trim contenteditable>
+let parts = ['shoulders', 'knees']; 
+let lyrics = ['head', ...parts, 'and', 'toes']; 
+// ["head", "shoulders", "knees", "and", "toes"]
+
+let obj1 = { foo: 'bar', x: 42 };
+let obj2 = { foo: 'baz', y: 13 };
+
+let clonedObj = { ...obj1 };
+// { foo: "bar", x: 42 }
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <h4>Spread operator</h4>
+                        <div>
+                            <p>Before</p>
+                            <pre><code class="hljs" data-trim contenteditable>
+function modifyState(state, modifiedValue) {
+    return Object.assign({}, state, {
+        field: modifiedValue
+    });
+}
+                            </code></pre>
+                        </div>
+                        <div>
+                            <p>Now</p>
+                            <pre><code class="hljs" data-trim contenteditable>
+function modifyState(state, modifiedValue) {
+    return {
+        ...state, 
+        field: modifiedValue 
+    };
+}
+                            </code></pre>
+                        </div>
+                    </section>
+                </section>
+				<section>
+                    <section>
+                        <h3>Rest parameters</h3>
+                        <div>
+                            <pre><code class="hljs" data-trim contenteditable>
+function consoleOut(something, ...somethingElse) {
+    console.log(something);
+    console.log(somethingElse);
+}
+
+consoleOut("test", 1, 2, 3, 4);
+// "test", 1, 2, 3, 4
+
+let array = [1, 2, 3];   // Achtung!
+consoleOut(...array);    // It's spread operator, not rest!
+                            </code></pre>
+                        </div>
+                    </section>
+					<section>
+						<h4>Rest parameters</h4>
+						<div>
+							<p>Before</p>
+							<pre><code class="hljs" data-trim contenteditable>
+function argsFun() {
+    var args = Array.prototype.slice.call(arguments);
+    args.forEach(function (arg) {
+        console.log(arg);
+    });
+}
+							</code></pre>
+						</div>
+						<div>
+							<p>Now</p>
+							<pre><code class="hljs" data-trim contenteditable>
+function argsFun(...args) {
+    args.forEach(function (arg) {
+        console.log(arg);
+    });
+}
+							</code></pre>
+						</div>
+					</section>
+				</section>
+                <section>
+                    <h3>Default parameters</h3>
+                    <div>
+                        <pre><code class="hljs" data-trim contenteditable>
+function multiply(a, b = 1) {
+    return a * b;
+}
+
+multiply(2, 2); // 4
+multiply(2, 1); // 2
+multiply(2);    // 2
+
+// you can pass even other functions!
+function arrayMultiply(a, b = multiply(2)) {
+    return [a, b];
+}
+
+arrayMultiply(1); // [1, 2]
+                        </code></pre>
+                    </div>
+                </section>
+                <section>
+                    <section>
+                        <h3>For...of</h3>
+                        <p>New loop for iterable objects: Array, String, Map, Set, arguments etc.</p>
+                    </section>
+                    <section>
+                        <h4>For...of</h4>
+                        <div>
+                            <pre><code class="hljs" data-trim contenteditable>
+let iterable = [10, 20, 30];
+
+for (let value of iterable) {
+    value += 1;
+    console.log(value);
+}
+// 11
+// 21
+// 31
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <h4>For...of</h4>
+                        <p>Example with string</p>
+                        <div>
+                            <pre><code class="hljs" data-trim contenteditable>
+let iterable = 'boo';
+
+for (let value of iterable) {
+    console.log(value);
+}
+// "b"
+// "o"
+// "o"
+                            </code></pre>
+                        </div>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h3>Object Destructuring</h3>
+                        <div>
+                            <pre><code class="hljs" data-trim contenteditable>
+let foo = { bar: 'test', baz: 3 };
+let { bar, baz, fooz } = foo;
+
+console.log(bar);  //  'test'
+console.log(baz);  //  3
+console.log(fooz);  //  undefined
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <h4>Object Destructuring</h4>
+                        <p>Aliases</p>
+                        <div>
+                            <pre><code class="hljs" data-trim contenteditable>
+let foo = { bar: 'test', baz: 3 };
+let { bar: a, baz: b } = foo;
+
+console.log(a);  //  'test'
+console.log(b);  //  3
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <h4>Object Destructuring</h4>
+                        <p>Pulling properties from object</p>
+                        <div>
+                            <pre><code class="hljs" data-trim contenteditable>
+let foo = { bar: { a: 'test', b: 'lol' } };
+let { bar: { a, b: c } } = foo;
+
+console.log(a);  //  'test'
+console.log(c);  //  'lol'
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <h4>Object Destructuring</h4>
+                        <p>Dynamic keys</p>
+                        <div>
+                            <pre><code class="hljs" data-trim contenteditable>
+let key = 'test';
+let { [key]: foo } = { test: 'bar' };
+console.log(foo);  //  'bar'
+                            </code></pre>
+                        </div>
+                        <p>Default values</p>
+                        <div>
+                            <pre><code class="hljs" data-trim contenteditable>
+var { foo=2 } = { foo: undefined };
+console.log(foo);  // 2
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <h4>Object Destructuring</h4>
+                        <p>Destructuring in parameters</p>
+                        <div>
+                            <pre><code class="hljs" data-trim contenteditable>
+let ob = {a: 1, b: 2, c: 3};
+function returnOb({ a, b, c}) { ... }
+returnOb(ob); 
+                            </code></pre>
+                        </div>
+                        <p>Destructuring in import statement</p>
+                        <div>
+                            <pre><code class="hljs" data-trim contenteditable>
+import { map, foreach } from "lodash";
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <h4>Object Destructuring</h4>
+                        <p>Destructuring arrays</p>
+                        <div>
+                            <pre><code class="hljs" data-trim contenteditable>
+let letters = ['a', 'b', 'c];
+let [a, b, c] = letters;
+// a = 'a', b = 'b', c = 'c'
+
+let letters = ['a', 'b', 'c];
+let [, b, c] = letters;
+// undefined, b = 'b', c = 'c'
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <h4>Object Destructuring</h4>
+                        <p>Swapping variables</p>
+                        <div>
+                            <pre><code class="hljs" data-trim contenteditable>
+let a = 1, b = 2;
+[a, b] = [b, a];
+
+console.log(a); // 2
+console.log(b); // 1
+                            </code></pre>
+                        </div>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h3>Symbols, Maps, Sets</h3>
+                        <p>New types of objects</p>
+                    </section>
+                    <section>
+                        <h3>Symbol</h3>
+                        <div>
+                            <p>They are tokens that serve as unique IDs</p>
+                            <pre><code class="hljs" data-trim contenteditable>
+let symbol1 = Symbol();
+let symbol2 = Symbol('symbol2');
+                            </code></pre>
+                        </div>
+                        <div>
+                            <p>Every symbol returned by Symbol() is unique</p>
+                            <pre><code class="hljs" data-trim contenteditable>
+symbol1 === symbol2; // false
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <h3>Map</h3>
+                        <p>The Map object holds key-value pairs</p>
+                        <div>
+                            <pre><code class="hljs" data-trim contenteditable>
+let map = new Map();
+
+map.set('foo', 123);
+map.get('foo');  // 123
+
+map.has('foo'); // true
+map.delete('foo');
+map.has('foo');  // false
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <h4>Map</h4>
+                        <p>Setting items in constructor</p>
+                        <div>
+                            <pre><code class="hljs" data-trim contenteditable>
+let map = new Map([
+    [ 1, 'one' ],
+    [ 2, 'two' ],
+    [ 3, 'three' ]
+]);
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <h4>WeakMap</h4>
+                        <p>Similiar to standard Map object but every key has to be an object</p>
+                        <p>WeakMap doesn’t prevent its keys from being garbage-collected</p>
+                        <div>
+                            <pre><code class="hljs" data-trim contenteditable>
+var map = new WeakMap();
+map.set(1, 2);
+// TypeError: 1 is not an object!
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <h4>Set</h4>
+                        <p>It’s a collection for unique values</p>
+                        <div>
+                            <pre><code class="hljs" data-trim contenteditable>
+let set = new Set();
+set.add(1);
+set.add('1');
+set.add({ key: 'value' });
+console.log(set); // Set {1, '1', Object {key: 'value'}}
+                            </code></pre>
+                        </div>
+                        <p>Set doesn’t allow to add duplicates!</p>
+                    </section>
+                    <section>
+                        <h4>WeakSet</h4>
+                        <p>Is a Set that doesn’t prevent its values from being garbage-collected</p>
+                        <div>
+                            <pre><code class="hljs" data-trim contenteditable>
+let set = new WeakSet();
+set.add(1);
+set.add('1');
+set.add({ key: 'value' });
+console.log(set); // WeakSet {1, '1', Object {key: 'value'}}
+                            </code></pre>
+                        </div>
+                        <p>WeakSet doesn’t allow to add duplicates!</p>
+                    </section>
+                </section>
+				<section>
+					<h3>Exponentiation operator (ES7)</h3>
+					<div class="left-box">
+						<p>Before</p>
+						<pre><code class="hljs" data-trim contenteditable>
+Math.pow(2, 4);
+						</code></pre>
+					</div>
+					<div class="right-box">
+						<p>Now</p>
+						<pre><code class="hljs" data-trim contenteditable>
+2 ** 2;
+						</code></pre>
+					</div>
+				</section>
+				<section>
+					<section>
+						<h3>New Array Methods</h3>
+						<ul>
+							<li>Array.from()</li>
+							<li>Array.of()</li>
+							<li>Array.prototype.entries()</li>
+							<li>Array.prototype.keys()</li>
+							<li>Array.prototype.values()</li>
+							<li>Array.prototype.find()</li>
+							<li>Array.prototype.findIndex()</li>
+							<li>Array.prototype.fill()</li>
+							<li>Array.prototype.includes()</li>
+						</ul>
+					</section>
+					<section>
+						<h4>Array.from()</h4>
+						<pre><code class="hljs" data-trim contenteditable>
+function args() {
+    Array.from(arguments).forEach(function (arg) {
+        console.log(arg);
+    });
+}
+						</code></pre>
+					</section>
+					<section>
+						<h4>Array.of()</h4>
+						<pre><code class="hljs" data-trim contenteditable>
+Array.of(1, 2, 3);
+// Array [1, 2, 3]
+						</code></pre>
+					</section>
+					<section>
+						<h4>Array.prototype.entries()</h4>
+						<h4>Array.prototype.keys()</h4>
+						<h4>Array.prototype.values()</h4>
+						<pre><code class="hljs" data-trim contenteditable>
+Array.from([ 'a', 'b' ].entries());
+// [ [ 0, 'a' ], [ 1, 'b' ] ]
+Array.from([ 'a', 'b' ].keys());
+// [ 0, 1 ]
+Array.from([ 'a', 'b' ].values());
+// [ 'a', 'b' ]
+						</code></pre>
+					</section>
+					<section>
+						<h4>Array.prototype.find()</h4>
+						<h4>Array.prototype.findIndex()</h4>
+						<pre><code class="hljs" data-trim contenteditable>
+[6, -5, 8].find(x => x < 0);  // -5
+[6, 5, 8].find(x => x < 0);  // undefined
+[6, -5, 8].findIndex(x => x < 0);  // 1
+[6, 5, 8].findIndex(x => x < 0);  // -1
+						</code></pre>
+					</section>
+					<section>
+						<h4>Array.prototype.fill()</h4>
+						<pre><code class="hljs" data-trim contenteditable>
+['a', 'b', 'c'].fill(7);
+// [ 7, 7, 7 ]
+						</code></pre>
+					</section>
+					<section>
+						<h4>Array.prototype.includes() (ES7)</h4>
+						<pre><code class="hljs" data-trim contenteditable>
+["a", "b", "c"].includes("a");  // true
+["a", "b", "c"].includes("d");  // false
+						</code></pre>
+					</section>
+				</section>
+                <section>
+                    <section>
+                        <h3>Async Functions (ES8)</h3>
+                        <p>The hottest thing!</p>
+                        <ul>
+                            <li class="fragment">It is a new way to write asynchronous code</li>
+                            <li class="fragment">Async function is built on top of promises</li>
+                            <li class="fragment">Async function is non blocking</li>
+                            <li class="fragment">Code is prettier, because looks like synchronous</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h4>Async Functions (ES8)</h4>
+                        <div>
+                            <pre><code class="hljs" data-trim contenteditable>
+const makeRequest = async () => {
+    console.log(await getJSON());
+    return "done";
+};
+                            </code></pre>
+                        </div>
+                        <div>
+                            <p>Error handling</p>
+                            <pre><code class="hljs" data-trim contenteditable>
+const makeRequest = async () => {
+    try {
+        console.log(await getJSON());
+    } catch (err) {
+        console.error(err);
+    }
+};
+                            </code></pre>
+                        </div>
+                    </section>
+                </section>
+				<section data-background="images/tony.gif">
+					<h2>Huge new possibilities!</h2>
+				</section>
+				<section>
+					<h3>Thank You ;)</h3>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
